@@ -1,0 +1,16 @@
+---
+# tasks file for apache2
+      - name: installing apache2
+        apt:
+         name: apache2
+         state: present
+         update_cache: yes
+
+
+      - name: copy file from local
+        copy:
+           src: files/index.html
+           dest: /var/www/html/
+           owner: www-data
+           group: www-data
+           mode: 0644
